@@ -5,9 +5,6 @@
 .App-logo {
   height: 40vmin;
   pointer-events: none;
-  /* translate: 100px 20px; */
-  perspective: 1000px;
-  transform: translateZ(50px) rotateX(-30deg);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -38,4 +35,41 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.follow-cursor-basic {
+  transform: perspective(1000px) rotateX(0deg);
+}
+
+.click-drag {
+  transform: perspective(1000px) rotateX(0deg);
+}
+
+.duck {
+  transform: perspective(1000px) rotateX(0deg);
+}
+
+.flock-of-ducks-1 {
+  position: relative;
+  transform: perspective(1000px) rotateX(0deg);
+}
+
+.distance-to-element {
+  position: relative;
+  transform: perspective(1000px) rotateX(0deg);
+  transition-property: all;
+  transition-duration: 1s;
+  transition-timing-function: ease;
+}
+
+.flock-of-ducks-2 {
+  transform: perspective(1000px) rotateX(0deg);
+  transition-property: all;
+  transition-duration: 1s;
+  transition-timing-function: ease;
+  display: table-cell;
+}
+
+.row {
+  display: table;
 }

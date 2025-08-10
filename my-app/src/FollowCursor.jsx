@@ -2,7 +2,7 @@ import { useState } from 'react'
 import logo from './logo.svg';
 import './App.css';
 
-function Page() {
+function FollowCursor() {
     const [x, setX] = useState(0);
     const [y, setY] = useState(0);
 
@@ -11,9 +11,22 @@ function Page() {
             onPointerMove={e => {
                 setX(e.clientX);
                 setY(e.clientY);
+                
+                let xRotate = (x - (window.screen.width / 2)) / 10;
+                let yRotate = (y - (window.screen.height / 2)) / 5;
+
+                const parallax_elements = document.querySelectorAll(".follow-cursor-basic");
+                for (let i = 0; i < parallax_elements.length; i++) {
+                    parallax_elements[i].style.transform = `perspective(1000px) rotateX(${xRotate}deg) rotateY(${yRotate}deg)`;
+                }
+
+                // parallax_elements.style.transform = `perspective(1000px) rotateX(${x / 90}deg) rotateY(${y / 50}deg)`;
         }}>
             <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
+                <div class="follow-cursor-basic">
+                    <img src={logo} className="App-logo" alt="logo" />
+                </div>
+
                 <p>
                 Edit <code>src/App.js</code> and save to reload.
                 </p>
@@ -32,4 +45,4 @@ function Page() {
     );
 }
 
-export { Page };
+export { FollowCursor };
